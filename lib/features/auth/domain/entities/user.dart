@@ -25,8 +25,8 @@ class User { // 用户实体类
     return User( // 返回用户实体
       id: json['id'] as String,
       email: json['email'] as String,
-      name: json['name'] as String?,
-      avatar: json['avatar'] as String?,
+      name: json['user_metadata']?['name'] as String?,
+      avatar: json['user_metadata']?['avatar'] as String?,
       isEmailVerified: json['email_confirmed_at'] != null,
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
@@ -39,13 +39,14 @@ class User { // 用户实体类
     return { // 返回JSON
       'id': id,
       'email': email,
-      'name': name,
-      'avatar': avatar,
+      'user_metadata': {
+        'name': name,
+        'avatar': avatar,
+      },
       'email_confirmed_at': isEmailVerified ? DateTime.now().toIso8601String() : null,
       'created_at': createdAt.toIso8601String(),
       'updated_at': updatedAt.toIso8601String(),
       'last_sign_in_at': lastLoginAt?.toIso8601String(),
-      'user_metadata': metadata,
     };
   }
 

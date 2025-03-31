@@ -1,6 +1,125 @@
-# AbyssPath
+# AbyssPath - 个性化学习路径生成器
 
-一个基于Flutter的iOS风格移动应用。
+## 项目概述
+AbyssPath 是一个基于 AI 的个性化学习路径生成器，帮助用户根据个人特点和目标规划学习路径。
+
+## 技术栈
+- 前端：Flutter 3.24.4
+- 后端：Supabase + PostgreSQL
+- AI：Deepseek API (DeepSeek-V3)
+- 状态管理：Riverpod
+- 路由：GoRouter
+- 网络请求：Dio
+- 数据持久化：Supabase
+
+## 功能模块
+
+### 已完成功能
+1. 用户认证
+   - 登录/注册
+   - 密码重置
+   - 会话管理
+
+2. 学习路径
+   - 路径列表展示
+   - 路径详情页面
+   - 基于 DeepSeek-V3 的智能路径生成
+   - UUID 类型支持
+   - 数据转换优化
+
+3. 能力评估
+   - 集成 Deepseek API
+   - 评估问答界面
+   - 能力雷达图展示
+   - 评估结果分析
+
+4. 路由系统
+   - GoRouter 集成
+   - 路由鉴权
+   - 嵌套路由支持
+
+### 待开发功能
+1. 学习路径
+   - [ ] 路径进度追踪
+   - [ ] 学习资源推荐
+   - [ ] 路径分享功能
+   - [ ] 协作学习支持
+
+2. 能力评估
+   - [ ] 评估历史记录
+   - [ ] 能力发展趋势
+   - [ ] 个性化建议生成
+   - [ ] 评估报告导出
+
+3. 社区功能
+   - [ ] 用户互动
+   - [ ] 经验分享
+   - [ ] 学习小组
+   - [ ] 导师系统
+
+4. 系统优化
+   - [ ] 离线支持
+   - [ ] 性能优化
+   - [ ] 数据备份
+   - [ ] 多语言支持
+
+## 环境配置
+1. 必要的环境变量（.env）：
+   ```
+   # Supabase配置
+   SUPABASE_URL=your_supabase_url
+   SUPABASE_ANON_KEY=your_supabase_key
+
+   # Deepseek配置（使用最新的 DeepSeek-V3）
+   DEEPSEEK_API_KEY=your_api_key
+   DEEPSEEK_BASE_URL=https://api.deepseek.com
+   ```
+
+2. 依赖安装：
+   ```bash
+   flutter pub get
+   ```
+
+3. 代码生成：
+   ```bash
+   dart run build_runner build --delete-conflicting-outputs
+   ```
+
+## 项目结构
+```
+lib/
+  ├── core/           # 核心功能
+  │   ├── config/     # 配置
+  │   ├── constants/  # 常量
+  │   ├── routes/     # 路由
+  │   ├── services/   # 服务
+  │   ├── theme/      # 主题
+  │   ├── utils/      # 工具
+  │   └── widgets/    # 通用组件
+  │
+  └── features/       # 功能模块
+      ├── auth/       # 认证
+      ├── assessment/ # 能力评估
+      └── learning_path/ # 学习路径
+```
+
+## 最近更新
+1. 升级到 DeepSeek-V3 API
+   - 优化了 API 调用结构
+   - 改进了错误处理机制
+   - 添加了详细的错误提示
+2. 改进了学习路径生成
+   - 优化了提示词设计
+   - 添加了 JSON 格式验证
+   - 提高了生成内容的质量
+3. 修复了学习路径模块的 UUID 类型转换问题
+4. 更新了路由配置，支持更灵活的导航
+
+## 开发规范
+1. 代码风格：遵循 Flutter 官方推荐的代码风格
+2. 提交规范：使用语义化的提交信息
+3. 测试覆盖：确保核心功能有单元测试覆盖
+4. 文档更新：功能变更时及时更新相关文档
 
 ## 项目结构
 
