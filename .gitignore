@@ -87,3 +87,11 @@ app.*.map.json
 # Environment configuration
 .env
 .env.*
+
+# Image files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.bmp
+*.webp
