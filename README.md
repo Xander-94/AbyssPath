@@ -711,3 +711,60 @@ supabase db reset
 - 使用代理服务器
 - 请求频率限制
 
+## DeepSeek API 集成说明
+
+### 1. API 配置
+```env
+# DeepSeek配置（使用最新的 DeepSeek-V3）
+DEEPSEEK_API_KEY=your_api_key
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+```
+
+### 2. 功能特性
+- 使用最新的 DeepSeek-V3 模型
+- 支持结构化 JSON 输出
+- 智能提示词优化
+- 完善的错误处理机制
+
+### 3. 路径生成示例
+```json
+{
+  "title": "学习路径标题",
+  "description": "路径描述",
+  "targetSkills": ["技能1", "技能2"],
+  "estimatedDuration": 90,
+  "difficulty": "beginner/intermediate/advanced",
+  "stages": [
+    {
+      "title": "阶段标题",
+      "description": "阶段描述",
+      "order": 1,
+      "duration": 30,
+      "prerequisites": "前置要求",
+      "tasks": [
+        {
+          "title": "任务标题",
+          "description": "任务描述",
+          "type": "learning/practice/quiz",
+          "order": 1,
+          "deadline": "2024-12-31T00:00:00Z",
+          "progress": 0
+        }
+      ]
+    }
+  ]
+}
+```
+
+### 4. 错误处理
+- API 调用错误（404、401、429 等）
+- JSON 格式验证
+- 响应内容验证
+- 详细的错误提示
+
+### 5. 性能优化
+- 单例 Dio 实例
+- 请求缓存
+- 错误重试机制
+- 响应数据验证
+
